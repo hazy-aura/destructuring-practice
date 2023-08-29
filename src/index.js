@@ -2,17 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import cars from "./practice";
 
-const {
-  model: hondaModel,
-  coloursByPopularity: hondaTopColour,
-  speedStats: { topSpeed: hondaTopSpeed }
-} = cars[0];
-console.log(hondaModel);
-const {
-  model: teslaModel,
-  coloursByPopularity: teslaTopColour,
-  speedStats: { topSpeed: teslaTopSpeed }
-} = cars[1];
+const[honda, tesla] = cars;
+
+const {coloursByPopularity : {teslaTopColour}} =tesla;
+const {coloursByPopularity : {hondaTopColour}} =honda;
+
+const {speedStats : {hondaTopSpeed}} = honda;
+const {speedStats : {teslaTopSpeed}} = tesla;
+
 ReactDOM.render(
   <table>
     <tr>
@@ -20,12 +17,12 @@ ReactDOM.render(
       <th>Top Speed</th>
     </tr>
     <tr>
-      <td>{teslaModel}</td>
+      <td>{tesla.model}</td>
       <td>{teslaTopSpeed}</td>
       <td>{teslaTopColour}</td>
     </tr>
     <tr>
-      <td>{hondaModel}</td>
+      <td>{honda.model}</td>
       <td>{hondaTopSpeed}</td>
       <td>{hondaTopColour}</td>
     </tr>
